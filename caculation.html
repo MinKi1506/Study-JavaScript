@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <h1>이자 계산</h1>
+    <br>
+    <label>초기 예금액: </label>
+    <input id="deposit" type="number" placeholder="예금액을 기입하세요">
+    <button onclick="saving()">계산</button>
+    <br>
+    <label>예상 이자: </label>
+    <h3 id="gain"></h3>
+
+    <script>
+        function saving(deposit){
+            let gain1;
+            let gain2;
+            deposit = parseInt($('#deposit').val());
+            if(deposit < 50000){
+                gain1 = deposit+(deposit*0.15);
+                gain2 = gain1+(gain1*0.15);
+                // gain1 = deposit*1.15*1.15;  이게 더 깔끔하네
+            }else {
+                gain1 = deposit+(deposit * 0.2);
+                gain2 = gain1+(gain1 * 0.2);
+                // gain1 = deposit*1.2*1.2;  이게 더 깔끔하네
+            }
+            console.log(gain2);
+            $('#gain').html(gain2);
+        }
+    </script>
+    <br>
+    <h1>퀴즈 ui</h1>
+    <p>후라이드 치킨 150g의 칼로리는?</p>
+    <input type="text" id="input1">
+    <button onclick="quiz()">정답확인</button>
+
+    <script>
+        function quiz(){
+            let answer = $('#input1').val();
+            if(answer == 435){
+                console.log(answer);
+                alert('정답입니다!')
+            }else{
+                alert('틀렸습니다..')
+            }
+        }
+    </script>
+
+</body>
+</html>
