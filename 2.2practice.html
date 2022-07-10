@@ -17,26 +17,18 @@
     <script>
         let x = parseInt($('#second').html());
         console.log(x);
-                
-        // function countDown(){
-        //     x = x-1;
-        //     console.log('한번 실행: '+x);
-        //     $('#second').html(x);
-        //     if(x == 0){
-        //         console.log('창이 없어졌습니다.');
-        //         $('.alert').hide();
-        //     }
-        // }
-
-        setInterval(function() {
+        let timer = setInterval(countDown,1000);     //countDown는 함수니까 ()를 붙여줬었는데, 빼야한다!           
+        
+        function countDown(){
             x = x-1;
             console.log('한번 실행: '+x);
             $('#second').html(x);
             if(x == 0){
                 console.log('창이 없어졌습니다.');
                 $('.alert').hide();
+                clearTimeout(timer); // 타이머 정지시키기
             }
-        }, 1000);
+        }
     </script>
 </body>
 </html>
