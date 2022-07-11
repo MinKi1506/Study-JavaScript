@@ -9,3 +9,17 @@
 .show {
     display: block;
 }
+
+.slide-container {
+    width: 300vw;
+    transition: 1s;
+}
+
+.slide-box {
+    float: left;
+    width: 100vw;
+}
+
+.slide-box img {
+    width: 100%;
+}

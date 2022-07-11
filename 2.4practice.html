@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="practice.css">
+    
+  <title>Document</title>
+</head>
+<body>
+  <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="./photo/car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="./photo/car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="./photo/car3.png">
+      </div>
+    </div>
+ </div> 
+ <br>
+ <button class="btn_pre">이전</button>
+ <button class="btn_1">1</button>
+ <button class="btn_2">2</button>
+ <button class="btn_3">3</button>
+ <button class="btn_next">다음</button>
+
+
+ <script>
+  let photo = 0;
+  $('.btn_pre').on('click', function(){
+    if(photo == 0 ){
+     
+    }else if(photo > 0){
+      $('.slide-container').css('transform', 'translateX(-'+(photo-1)+'00vw)'); //이방법 혹은
+      // $('.slide-container').css('transform', 'translateX(-${photo}00vw)'); //이것도 같은 표현!
+      photo -= 1;
+    }
+
+  })
+
+  $('.btn_1').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(0vw)');
+    photo = 1;
+  })
+
+  $('.btn_2').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-100vw)');
+    photo = 2;
+  })
+
+  $('.btn_3').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-200vw)');
+    photo = 3;
+  })
+
+  $('.btn_next').on('click', function(){
+    if(photo >= 0){
+      $('.slide-container').css('transform', 'translateX(-'+(photo+1)+'00vw)');
+      photo += 1;
+    }
+  })
+ </script>
+    
+</body>
+</html>
