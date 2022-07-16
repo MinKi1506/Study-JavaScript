@@ -9,17 +9,50 @@
   <title>Document</title>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <spam class="navbar-brand">Navbar</span>
+  <div>
+ 
+      <spam class="navbar-brand">스크롤바 이벤트</span>
         <span class="ms-auto mx-3 badge bg-dark">Dark</span>
-      <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </nav>
+  </div>
+  <div style="height: 3000px">
+    <div class="lorem" style="width: 400px; height: 200px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div> 
+  </div>
 
-  <div style="height: 2000px"></div>
+ 
+
+
+
+
+  <!-- 스크롤 내리면 폰트 변경 -->
+  <script>
+  window.addEventListener('scroll', function(){
+    if(window.scrollY >= 1000){
+      $('.navbar-brand').css('font-size', '60px');
+    }else{
+      $('.navbar-brand').css('font-size', '30px');
+
+    }
+  })
+  </script>
+
+<!-- 약관 모두 읽으면 alert박스 생성 -->
+  <script>
+    $('.lorem').on('scroll', function(){
+      let 스크롤한양 = document.querySelector('.lorem').scrollTop.toFixed(2);
+      let 실제스크롤박스크기 = document.querySelector('.lorem').scrollHeight;
+      let div박스높이= document.querySelector('.lorem').clientHeight;
+
+      console.log('스크롤양: '+스크롤한양+'+ div박스 높이: '+div박스높이+ '= 실제 스크롤 박스 크기: '+실제스크롤박스크기);
+      //결론적으로, 스크롤한 양+내가 설정한 div박스 크기 = 실제 스크롤 박스 크기 이다
+      if($('.lorem').scrollTop == 30){ //scrollY는 window에서 주로 쓰고, 일반적인 div같은 tag에는 scrollTop을 사용한다
+       window.alert('약관을 모두 읽었습니다');
+      }
+    })
+  </script>
     
 </body>
 </html>
